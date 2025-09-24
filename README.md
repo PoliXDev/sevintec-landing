@@ -1,36 +1,123 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# SEVINTEC Landing Page
 
-## Getting Started
+Landing page moderna para SEVINTEC, empresa líder en servicios de vigilancia privada, prevención y control de acceso. Evolución de Sevinca con tecnología innovadora.
 
-First, run the development server:
+## 🚀 Características
 
+- **Framework**: Next.js 15 con App Router
+- **Frontend**: React 19 + TypeScript
+- **Estilos**: Tailwind CSS
+- **Optimización**: Imágenes optimizadas, SEO completo
+- **Responsive**: Diseño adaptable a todos los dispositivos
+- **Performance**: Optimizado para Vercel
+
+## 🛠️ Tecnologías
+
+- Next.js 15.5.3
+- React 19.1.0
+- TypeScript 5
+- Tailwind CSS 3.4.0
+- Google Fonts (Roboto)
+
+## 📦 Instalación
+
+1. Clona el repositorio:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/tu-usuario/sevintec-landing.git
+cd sevintec-landing
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Instala las dependencias:
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Configura las variables de entorno:
+```bash
+cp .env.example .env.local
+# Edita .env.local con tus valores
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. Ejecuta el servidor de desarrollo:
+```bash
+npm run dev
+```
 
-## Learn More
+Abre [http://localhost:3000](http://localhost:3000) en tu navegador.
 
-To learn more about Next.js, take a look at the following resources:
+## 🚀 Despliegue en Vercel
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Opción 1: Despliegue automático desde GitHub
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Conecta tu repositorio de GitHub con Vercel
+2. Vercel detectará automáticamente Next.js
+3. Configura las variables de entorno en el dashboard de Vercel
+4. ¡Despliegue automático en cada push!
 
-## Deploy on Vercel
+### Opción 2: Despliegue manual
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+# Instala Vercel CLI
+npm i -g vercel
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+# Despliega
+vercel
+
+# Para producción
+vercel --prod
+```
+
+## 📁 Estructura del Proyecto
+
+```
+sevintec-landing/
+├── app/                    # App Router de Next.js
+│   ├── layout.tsx         # Layout principal
+│   ├── page.tsx           # Página principal
+│   ├── globals.css        # Estilos globales
+│   └── services/          # Páginas de servicios
+├── hooks/                 # Custom hooks
+├── lib/                   # Configuraciones
+├── types/                 # Definiciones TypeScript
+├── public/                # Assets estáticos
+└── vercel.json           # Configuración de Vercel
+```
+
+## 🎨 Servicios Incluidos
+
+- **Videovigilancia CCTV**: Sistemas 4K con visión nocturna
+- **Control de Acceso**: Biométricos y tarjetas inteligentes
+- **Sistemas de Alarma**: Detección temprana y respuesta
+- **Desarrollo de Software**: Soluciones personalizadas
+
+## 🔧 Scripts Disponibles
+
+- `npm run dev` - Servidor de desarrollo
+- `npm run dev:turbo` - Desarrollo con Turbopack
+- `npm run build` - Build de producción
+- `npm run start` - Servidor de producción
+- `npm run lint` - Linter de código
+
+## 📱 Responsive Design
+
+- **Móvil**: Imagen estática optimizada
+- **Desktop**: Carrusel animado con indicadores
+- **Breakpoints**: Adaptativo con Tailwind CSS
+
+## 🔒 SEO y Seguridad
+
+- Meta tags optimizados
+- Open Graph y Twitter Cards
+- Headers de seguridad
+- Optimización de imágenes
+- Compresión automática
+
+## 📞 Contacto
+
+- **Teléfono**: +58 422-0777892
+- **Email**: contacto@sevintec.com
+- **WhatsApp**: +58 422-0777892
+
+## 📄 Licencia
+
+© 2024 SEVINTEC. Todos los derechos reservados.

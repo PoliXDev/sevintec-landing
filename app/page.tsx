@@ -3,9 +3,20 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useWindowSize } from '@/hooks/useWindowSize';
+import { useState } from 'react';
+import emailjs from '@emailjs/browser';
 
 export default function Home() {
   const { width } = useWindowSize();
+  
+  // Estados para el formulario de contacto
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   
   // Array de imágenes del carrusel
   const carouselImages = [
@@ -17,11 +28,63 @@ export default function Home() {
     '/carrusel_img/6.jpg',
   ];
   
-  // Seleccionar una imagen aleatoria para móvil
-  const randomImage = carouselImages[Math.floor(Math.random() * carouselImages.length)];
+  // Imagen fija para móvil
+  const mobileImage = '/carrusel_img/4.png';
   
   // Determinar si es móvil (menos de 768px)
   const isMobile = width < 768;
+
+  // Función para manejar cambios en el formulario
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  // Función para enviar el formulario
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+
+    try {
+      // Configuración de EmailJS
+      const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+      const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+      const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
+
+      // Verificar que las variables de entorno estén configuradas
+      if (!serviceId || !templateId || !publicKey) {
+        throw new Error('EmailJS no está configurado. Por favor, configura las variables de entorno.');
+      }
+
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        message: formData.message,
+        to_email: 'contacto@sevintec.com'
+      };
+
+      await emailjs.send(serviceId, templateId, templateParams, publicKey);
+      
+      setSubmitStatus('success');
+      setFormData({ name: '', email: '', message: '' });
+      
+      // Limpiar mensaje de éxito después de 5 segundos
+      setTimeout(() => setSubmitStatus('idle'), 5000);
+      
+    } catch (error) {
+      console.error('Error sending email:', error);
+      setSubmitStatus('error');
+      
+      // Limpiar mensaje de error después de 5 segundos
+      setTimeout(() => setSubmitStatus('idle'), 5000);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <>
@@ -164,20 +227,19 @@ export default function Home() {
             <div className="w-full relative min-h-[70vh] md:min-h-[80vh] lg:min-h-[90vh]">
               {/* Contenedor del carrusel */}
               <div className="absolute inset-0">
-                {/* Para móvil: imagen estática aleatoria */}
+                {/* Para móvil: imagen fija */}
                 {isMobile ? (
                   <div className="absolute inset-0">
                     <Image
-                      src={randomImage}
+                      src={mobileImage}
                       alt="Imagen de fondo SEVINTEC"
                       fill
-                      className="object-contain sm:object-cover animate-fade-in"
+                      className="object-cover animate-fade-in"
                       sizes="100vw"
                       quality={90}
                       priority={true}
                       style={{
-                        objectPosition: 'center top',
-                        minHeight: '100%'
+                        objectPosition: 'calc(50% - 200px) center'
                       }}
                     />
                   </div>
@@ -222,7 +284,7 @@ export default function Home() {
               </div>
 
               {/* Texto superpuesto */}
-              <div className="absolute inset-0 z-20 flex items-end sm:items-center pb-14 sm:pb-0">
+              <div className="absolute inset-0 z-20 flex items-end sm:items-center pb-14 sm:pb-0" style={{ transform: isMobile ? 'translateY(-30px)' : 'none' }}>
                 <div className="container mx-auto px-4 sm:px-6">
                   <div className="max-w-xl md:max-w-2xl lg:max-w-3xl">
                     <div className="transform transition-all duration-1000 translate-y-0 hover:translate-y-[-5px]">
@@ -234,10 +296,22 @@ export default function Home() {
                         Soluciones de seguridad integrales para su empresa con la última tecnología
                       </p>
                       <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-                        <button className="bg-yellow-500 text-black px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-bold hover:bg-yellow-400 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl text-sm sm:text-base md:text-lg shadow-lg">
+                        <button 
+                          onClick={() => {
+                            const contactSection = document.getElementById('contacto');
+                            contactSection?.scrollIntoView({ behavior: 'smooth' });
+                          }}
+                          className="bg-yellow-500 text-black px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-bold hover:bg-yellow-400 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl text-sm sm:text-base md:text-lg shadow-lg"
+                        >
                           Solicitar Estudio Gratuito
                         </button>
-                        <button className="bg-white/10 backdrop-blur-sm border-2 border-white/50 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-bold hover:bg-white/20 hover:border-white transition-all duration-300 transform hover:-translate-y-1 text-sm sm:text-base md:text-lg shadow-lg">
+                        <button 
+                          onClick={() => {
+                            const servicesSection = document.getElementById('servicios');
+                            servicesSection?.scrollIntoView({ behavior: 'smooth' });
+                          }}
+                          className="bg-white/10 backdrop-blur-sm border-2 border-white/50 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-bold hover:bg-white/20 hover:border-white transition-all duration-300 transform hover:-translate-y-1 text-sm sm:text-base md:text-lg shadow-lg"
+                        >
                           Ver Servicios
                         </button>
                       </div>
@@ -508,33 +582,60 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="bg-white/10 p-8 rounded-lg backdrop-blur-sm">
-                  <form className="space-y-6">
+                  <form onSubmit={handleSubmit} className="space-y-6">
+                    {/* Mensaje de éxito */}
+                    {submitStatus === 'success' && (
+                      <div className="bg-green-500/20 border border-green-500/50 text-green-100 px-4 py-3 rounded-lg">
+                        ✅ ¡Mensaje enviado exitosamente! Te contactaremos pronto.
+                      </div>
+                    )}
+                    
+                    {/* Mensaje de error */}
+                    {submitStatus === 'error' && (
+                      <div className="bg-red-500/20 border border-red-500/50 text-red-100 px-4 py-3 rounded-lg">
+                        ❌ Error al enviar el mensaje. Por favor, inténtalo de nuevo.
+                      </div>
+                    )}
+
                     <div>
                       <input
                         type="text"
+                        name="name"
+                        value={formData.name}
+                        onChange={handleInputChange}
                         placeholder="Nombre completo"
-                        className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 focus:border-yellow-500 focus:ring-2 focus:ring-yellow-500 text-white"
+                        required
+                        className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 focus:border-yellow-500 focus:ring-2 focus:ring-yellow-500 text-white placeholder-gray-300"
                       />
                     </div>
                     <div>
                       <input
                         type="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleInputChange}
                         placeholder="Correo electrónico"
-                        className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 focus:border-yellow-500 focus:ring-2 focus:ring-yellow-500 text-white"
+                        required
+                        className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 focus:border-yellow-500 focus:ring-2 focus:ring-yellow-500 text-white placeholder-gray-300"
                       />
                     </div>
                     <div>
                       <textarea
+                        name="message"
+                        value={formData.message}
+                        onChange={handleInputChange}
                         placeholder="Mensaje"
                         rows={4}
-                        className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 focus:border-yellow-500 focus:ring-2 focus:ring-yellow-500 text-white"
+                        required
+                        className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 focus:border-yellow-500 focus:ring-2 focus:ring-yellow-500 text-white placeholder-gray-300 resize-none"
                       ></textarea>
                     </div>
                     <button
                       type="submit"
-                      className="w-full bg-yellow-500 text-black py-3 px-6 rounded-lg font-semibold hover:bg-yellow-400 transition-colors"
+                      disabled={isSubmitting}
+                      className="w-full bg-yellow-500 text-black py-3 px-6 rounded-lg font-semibold hover:bg-yellow-400 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                     >
-                      Enviar Mensaje
+                      {isSubmitting ? 'Enviando...' : 'Enviar Mensaje'}
                     </button>
                   </form>
                 </div>
@@ -568,7 +669,7 @@ export default function Home() {
 
         {/* Botón flotante de WhatsApp */}
         <a
-          href="https://wa.me/+584220777892"
+          href="https://wa.me/00584220777892"
           target="_blank"
           rel="noopener noreferrer"
           className="whatsapp-button fixed bottom-8 right-8 bg-[#25D366] text-white p-6 rounded-full shadow-xl hover:bg-[#20BA5C] transition-all duration-300 z-50 flex items-center justify-center group"

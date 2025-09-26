@@ -669,7 +669,7 @@ export default function Home() {
 
         {/* Botón flotante de WhatsApp */}
         <a
-          href="https://wa.me/00584220777892"
+          href="https://wa.me/+584220777892"
           target="_blank"
           rel="noopener noreferrer"
           className="whatsapp-button fixed bottom-8 right-8 bg-[#25D366] text-white p-6 rounded-full shadow-xl hover:bg-[#20BA5C] transition-all duration-300 z-50 flex items-center justify-center group"

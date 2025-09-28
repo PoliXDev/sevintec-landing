@@ -12,6 +12,9 @@
   --light-gray: #f3f4f6;
   --white: #ffffff;
   --dark-text: #1f2937;
+  
+  /* Forzar tema claro */
+  color-scheme: light only;
 }
 
 * {
@@ -20,12 +23,42 @@
 
 html {
   scroll-behavior: smooth;
+  color-scheme: light only;
 }
 
 body {
   margin: 0;
   padding: 0;
   font-family: 'Inter', 'Poppins', system-ui, sans-serif;
+  color-scheme: light only;
+  background-color: #ffffff !important;
+}
+
+/* Forzar tema claro en todos los navegadores */
+* {
+  color-scheme: light only;
+}
+
+/* Prevenir modo oscuro en navegadores móviles */
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: light only;
+  }
+  
+  html {
+    color-scheme: light only;
+    background-color: #ffffff !important;
+  }
+  
+  body {
+    color-scheme: light only;
+    background-color: #ffffff !important;
+    color: #000000 !important;
+  }
+  
+  * {
+    color-scheme: light only;
+  }
 }
 
 @keyframes carousel {

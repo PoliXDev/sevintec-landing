@@ -17,6 +17,13 @@ export const metadata: Metadata = {
   keywords: siteConfig.seo.keywords,
   authors: [{ name: siteConfig.company.name }],
   creator: siteConfig.company.name,
+  // Meta tags para forzar tema claro
+  other: {
+    'color-scheme': 'light only',
+    'theme-color': '#ffffff',
+    'msapplication-navbutton-color': '#ffffff',
+    'apple-mobile-web-app-status-bar-style': 'light-content',
+  },
   openGraph: {
     type: "website",
     locale: "es_ES",
@@ -59,6 +66,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" className="scroll-smooth">
+      <head>
+        {/* Meta tags adicionales para forzar tema claro */}
+        <meta name="color-scheme" content="light only" />
+        <meta name="theme-color" content="#ffffff" />
+        <meta name="msapplication-navbutton-color" content="#ffffff" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="light-content" />
+        <meta name="supported-color-schemes" content="light" />
+      </head>
       <body
         className={`${roboto.variable} font-roboto antialiased`}
       >

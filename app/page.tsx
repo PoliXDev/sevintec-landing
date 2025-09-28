@@ -88,7 +88,58 @@ export default function Home() {
 
   return (
     <>
+      {/* Meta tags para forzar tema claro */}
+      <meta name="color-scheme" content="light only" />
+      <meta name="theme-color" content="#ffffff" />
+      <meta name="msapplication-navbutton-color" content="#ffffff" />
+      <meta name="apple-mobile-web-app-status-bar-style" content="light-content" />
+      
       <style jsx global>{`
+        /* Forzar tema claro en todos los navegadores */
+        :root {
+          color-scheme: light only;
+        }
+        
+        html {
+          color-scheme: light only;
+        }
+        
+        body {
+          color-scheme: light only;
+        }
+        
+        /* Prevenir modo oscuro en navegadores móviles */
+        @media (prefers-color-scheme: dark) {
+          :root {
+            color-scheme: light only;
+          }
+          
+          html {
+            color-scheme: light only;
+          }
+          
+          body {
+            color-scheme: light only;
+          }
+        }
+        
+        /* Forzar fondo blanco en todos los elementos */
+        * {
+          color-scheme: light only;
+        }
+        
+        /* Asegurar que el fondo sea siempre claro */
+        html, body {
+          background-color: #ffffff !important;
+        }
+        
+        /* Prevenir inversión de colores en navegadores */
+        @media (prefers-color-scheme: dark) {
+          html, body {
+            background-color: #ffffff !important;
+            color: #000000 !important;
+          }
+        }
         @keyframes carousel {
           0%, 12% {
             opacity: 1;
@@ -201,12 +252,12 @@ export default function Home() {
                   >
                     Servicios
                   </a>
-                  <a 
-                    href="#clientes" 
+                  <Link 
+                    href="/services/about-us" 
                     className="text-gray-800 hover:text-yellow-500 px-3 py-2 text-lg font-medium transition-colors duration-200 border-b-2 border-transparent hover:border-yellow-500"
                   >
                     Quienes Somos
-                  </a>
+                  </Link>
                   <a 
                     href="#contacto" 
                     className="bg-yellow-500 text-black px-6 py-3 rounded-lg text-lg font-semibold hover:bg-yellow-400 transition-colors duration-200 shadow-md hover:shadow-lg"
@@ -669,7 +720,7 @@ export default function Home() {
 
         {/* Botón flotante de WhatsApp */}
         <a
-          href="https://wa.me/584220777892"
+          href="https://wa.me/+584220777892"
           target="_blank"
           rel="noopener noreferrer"
           className="whatsapp-button fixed bottom-8 right-8 bg-[#25D366] text-white p-6 rounded-full shadow-xl hover:bg-[#20BA5C] transition-all duration-300 z-50 flex items-center justify-center group"

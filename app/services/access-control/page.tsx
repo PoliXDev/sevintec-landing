@@ -13,7 +13,7 @@ export default function AccessControl() {
             <div className="flex-shrink-0">
               <Link href="/">
                 <Image
-                  src="/logo_brand_img/SEVINTEC_LOGO_FINAL.png"
+                  src="/logo_brand_img/SEVINTEC_LOGO_FINAL2.png"
                   alt="SEVINTEC Logo"
                   width={330}
                   height={110}

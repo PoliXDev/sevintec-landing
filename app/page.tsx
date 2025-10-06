@@ -230,7 +230,7 @@ export default function Home() {
             <div className="flex justify-center md:justify-between items-center h-24">
               <div className="flex-shrink-0">
                 <Image
-                  src="/logo_brand_img/SEVINTEC_LOGO_FINAL.png"
+                  src="/logo_brand_img/SEVINTEC_LOGO_FINAL2.png"
                   alt="SEVINTEC Logo"
                   width={330}
                   height={110}

@@ -12,13 +12,13 @@ export default function AccessControl() {
           <div className="flex justify-between items-center h-24">
             <div className="flex-shrink-0">
               <Link href="/">
-                <Image
+                <img
                   src="/logo_brand_img/SEVINTEC_LOGO_2.svg"
                   alt="SEVINTEC Logo"
                   width={330}
                   height={110}
                   className="object-contain py-2"
-                  priority
+                  style={{ maxWidth: '330px', height: 'auto' }}
                 />
               </Link>
             </div>

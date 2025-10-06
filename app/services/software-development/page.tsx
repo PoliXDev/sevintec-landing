@@ -13,7 +13,7 @@ export default function SoftwareDevelopment() {
             <div className="flex-shrink-0">
               <Link href="/">
                 <Image
-                  src="/logo_brand_img/SEVINTEC_LOGO_2.png"
+                  src="/logo_brand_img/SEVINTEC_LOGO_FINAL.png"
                   alt="SEVINTEC Logo"
                   width={330}
                   height={110}

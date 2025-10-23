@@ -13,6 +13,7 @@ export default function Home() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    phone: '',
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -63,6 +64,7 @@ export default function Home() {
       const templateParams = {
         from_name: formData.name,
         from_email: formData.email,
+        from_phone: formData.phone,
         message: formData.message,
         to_email: 'contacto@sevintec.com'
       };
@@ -70,7 +72,7 @@ export default function Home() {
       await emailjs.send(serviceId, templateId, templateParams, publicKey);
       
       setSubmitStatus('success');
-      setFormData({ name: '', email: '', message: '' });
+      setFormData({ name: '', email: '', phone: '', message: '' });
       
       // Limpiar mensaje de éxito después de 5 segundos
       setTimeout(() => setSubmitStatus('idle'), 5000);
@@ -666,6 +668,17 @@ export default function Home() {
                         value={formData.email}
                         onChange={handleInputChange}
                         placeholder="Correo electrónico"
+                        required
+                        className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 focus:border-yellow-500 focus:ring-2 focus:ring-yellow-500 text-white placeholder-gray-300"
+                      />
+                    </div>
+                    <div>
+                      <input
+                        type="tel"
+                        name="phone"
+                        value={formData.phone}
+                        onChange={handleInputChange}
+                        placeholder="Teléfono"
                         required
                         className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 focus:border-yellow-500 focus:ring-2 focus:ring-yellow-500 text-white placeholder-gray-300"
                       />

@@ -69,12 +69,12 @@ export default function VideovigilanciaCCTV() {
                   Tecnología avanzada con visión nocturna, reconocimiento facial y monitoreo en tiempo real.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <button className="bg-yellow-500 text-black px-8 py-4 rounded-lg font-bold hover:bg-yellow-400 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl">
+                  <Link 
+                    href="/#contacto" 
+                    className="bg-yellow-500 text-black px-8 py-4 rounded-lg font-bold hover:bg-yellow-400 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl text-center"
+                  >
                     Solicitar Cotización
-                  </button>
-                  <button className="bg-white/10 backdrop-blur-sm border-2 border-white/50 text-white px-8 py-4 rounded-lg font-bold hover:bg-white/20 hover:border-white transition-all duration-300 transform hover:-translate-y-1">
-                    Ver Tecnologías
-                  </button>
+                  </Link>
                 </div>
               </div>
               <div className="relative">
@@ -417,9 +417,12 @@ export default function VideovigilanciaCCTV() {
               apoyados en la tecnología más avanzada del mercado de videovigilancia.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-yellow-500 text-black px-8 py-4 rounded-lg font-bold hover:bg-yellow-400 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl">
+              <Link 
+                href="/#contacto" 
+                className="bg-yellow-500 text-black px-8 py-4 rounded-lg font-bold hover:bg-yellow-400 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl text-center"
+              >
                 Solicitar Consulta Gratuita
-              </button>
+              </Link>
               <Link 
                 href="/#servicios" 
                 className="bg-white/10 backdrop-blur-sm border-2 border-white/50 text-white px-8 py-4 rounded-lg font-bold hover:bg-white/20 hover:border-white transition-all duration-300 transform hover:-translate-y-1 inline-block text-center"

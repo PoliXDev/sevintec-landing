@@ -69,12 +69,12 @@ export default function AlarmSystems() {
                   robos y emergencias. Tecnología de última generación con gestión sencilla.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <button className="bg-yellow-500 text-black px-8 py-4 rounded-lg font-bold hover:bg-yellow-400 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl">
+                  <Link 
+                    href="/#contacto" 
+                    className="bg-yellow-500 text-black px-8 py-4 rounded-lg font-bold hover:bg-yellow-400 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl text-center"
+                  >
                     Solicitar Cotización
-                  </button>
-                  <button className="bg-white/10 backdrop-blur-sm border-2 border-white/50 text-white px-8 py-4 rounded-lg font-bold hover:bg-white/20 hover:border-white transition-all duration-300 transform hover:-translate-y-1">
-                    Ver Tecnologías
-                  </button>
+                  </Link>
                 </div>
               </div>
               <div className="relative">
@@ -366,12 +366,18 @@ export default function AlarmSystems() {
               de alarma pueden brindarle la tranquilidad y protección que necesita.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-yellow-500 text-black px-8 py-4 rounded-lg font-bold hover:bg-yellow-400 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl">
+              <Link 
+                href="/#contacto" 
+                className="bg-yellow-500 text-black px-8 py-4 rounded-lg font-bold hover:bg-yellow-400 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl text-center"
+              >
                 Solicitar Consulta Gratuita
-              </button>
-              <button className="bg-white/10 backdrop-blur-sm border-2 border-white/50 text-white px-8 py-4 rounded-lg font-bold hover:bg-white/20 hover:border-white transition-all duration-300 transform hover:-translate-y-1">
+              </Link>
+              <Link 
+                href="/#servicios" 
+                className="bg-white/10 backdrop-blur-sm border-2 border-white/50 text-white px-8 py-4 rounded-lg font-bold hover:bg-white/20 hover:border-white transition-all duration-300 transform hover:-translate-y-1 text-center"
+              >
                 Ver Otros Servicios
-              </button>
+              </Link>
             </div>
           </div>
         </section>

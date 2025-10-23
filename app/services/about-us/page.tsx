@@ -127,9 +127,6 @@ export default function AboutUs() {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
                   <div className="animate-slide-in-left">
                     <div className="mb-6">
-                      <span className="inline-block px-4 py-2 bg-blue-500/10 text-blue-600 text-sm font-semibold rounded-full mb-4">
-                        Nuestra Empresa
-                      </span>
                       <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
                         Nuestra <span className="text-blue-500">Misión</span>
                       </h2>
@@ -170,10 +167,7 @@ export default function AboutUs() {
               {/* Values Section */}
               <section className="mb-24">
                 <div className="text-center mb-20">
-                  <span className="inline-block px-4 py-2 bg-blue-500/10 text-blue-600 text-sm font-semibold rounded-full mb-4">
-                    Nuestros Pilares
-                  </span>
-                  <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
+                   <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
                     Nuestros <span className="text-blue-500">Valores</span>
                   </h2>
                   <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
@@ -223,9 +217,6 @@ export default function AboutUs() {
               {/* Commitment Section */}
               <section className="mb-24">
                 <div className="text-center">
-                  <span className="inline-block px-4 py-2 bg-blue-500/10 text-blue-600 text-sm font-semibold rounded-full mb-4">
-                    Nuestro Compromiso
-                  </span>
                   <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">
                     Nuestro <span className="text-blue-500">Compromiso</span>
                   </h2>

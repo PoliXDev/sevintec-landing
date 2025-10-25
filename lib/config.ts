@@ -1,32 +1,32 @@
 import { SiteConfig } from '@/types';
 
-// Site configuration based on SEVINTEC requirements
+
 export const siteConfig: SiteConfig = {
   company: {
     name: "SEVINTEC",
     tagline: "Seguridad, Confianza e Innovación Tecnológica",
-    description: "Empresa líder en servicios de vigilancia privada, prevención y control de acceso. Evolución de Sevinca con tecnología innovadora.",
-    phone: "+58 424-123-4567", // Replace with actual phone
-    email: "contacto@sevintec.com", // Replace with actual email
-    whatsapp: "584241234567" // Replace with actual WhatsApp number
+    description: "Empresa líder en servicios de seguridad privada, prevención y control de acceso, alarmas y CCTV.",
+    phone: "+58 422-0777892", 
+    email: "contacto@sevintec.com", 
+    whatsapp: "584220777892" 
   },
   seo: {
-    title: "SEVINTEC - Servicios de Vigilancia y Seguridad Privada",
-    description: "Empresa líder en servicios de vigilancia privada, prevención y control de acceso. Evolución de Sevinca con tecnología innovadora.",
+    title: "SEVINTEC -  Seguridad privada, prevención y control de acceso, alarmas y CCTV.",
+    description: "Empresa líder en servicios de seguridad privada, prevención y control de acceso, alarmas y CCTV.",
     keywords: [
       "vigilancia privada",
       "seguridad",
       "prevención",
       "control de acceso",
       "SEVINTEC",
-      "Sevinca",
+      "Sevintec",
       "seguridad empresarial",
       "vigilancia corporativa"
     ],
     ogImage: "/images/og-image.jpg"
   },
   social: {
-    facebook: "https://facebook.com/sevintec", // Replace with actual URLs
+    facebook: "https://facebook.com/sevintec", 
     instagram: "https://instagram.com/sevintec",
     linkedin: "https://linkedin.com/company/sevintec"
   }
@@ -72,19 +72,19 @@ export const services = [
   }
 ];
 
-// Color palette based on SEVINTEC logo
+
 export const colors = {
   primary: {
-    blue: "#1e40af",      // Azul primario del logo
-    secondary: "#3b82f6"  // Azul secundario del logo
+    blue: "#1e40af",      
+    secondary: "#3b82f6"  
   },
   accent: {
-    green: "#10b981"      // Verde de acento
+    green: "#10b981"      
   },
   neutral: {
-    gray: "#6b7280",      // Gris neutro
-    lightGray: "#f3f4f6", // Gris claro
-    darkText: "#1f2937"   // Texto oscuro
+    gray: "#6b7280",      
+    lightGray: "#f3f4f6", 
+    darkText: "#1f2937"   
   },
   white: "#ffffff"
 };

@@ -19,19 +19,6 @@ export default function Home() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   
-  // Array de imágenes del carrusel
-  const carouselImages = [
-    '/carrusel_img/1.webp',
-    '/carrusel_img/2.jpg',
-    '/carrusel_img/3.jpg',
-    '/carrusel_img/4.png',
-    '/carrusel_img/5.webp',
-    '/carrusel_img/6.jpg',
-  ];
-  
-  // Imagen fija para móvil
-  const mobileImage = '/carrusel_img/4.png';
-  
   // Determinar si es móvil (menos de 768px)
   const isMobile = width < 768;
 
@@ -142,62 +129,7 @@ export default function Home() {
             color: #000000 !important;
           }
         }
-        @keyframes carousel {
-          0%, 12% {
-            opacity: 1;
-            transform: scale(1);
-          }
-          15%, 97% {
-            opacity: 0;
-            transform: scale(1.02);
-          }
-          100% {
-            opacity: 1;
-            transform: scale(1);
-          }
-        }
-        
-        @keyframes carouselIndicator {
-          0%, 12% {
-            opacity: 1;
-            transform: scale(1.2);
-            background-color: rgba(255, 255, 255, 0.9);
-          }
-          15%, 97% {
-            opacity: 0.3;
-            transform: scale(1);
-            background-color: rgba(255, 255, 255, 0.3);
-          }
-          100% {
-            opacity: 1;
-            transform: scale(1.2);
-            background-color: rgba(255, 255, 255, 0.9);
-          }
-        }
-        
-        .animate-carousel {
-          animation: carousel 24s infinite;
-        }
-        
-        .animate-indicator {
-          animation: carouselIndicator 24s infinite;
-        }
-        
-        @keyframes fadeIn {
-          0% {
-            opacity: 0;
-            transform: scale(1.05);
-          }
-          100% {
-            opacity: 1;
-            transform: scale(1);
-          }
-        }
-        
-        .animate-fade-in {
-          animation: fadeIn 1.5s ease-out;
-        }
-        
+
         @keyframes pulse {
           0% {
             transform: scale(1);
@@ -278,61 +210,25 @@ export default function Home() {
           <section id="inicio" className="relative overflow-hidden bg-gray-900">
             {/* Contenedor responsive */}
             <div className="w-full relative min-h-[70vh] md:min-h-[80vh] lg:min-h-[90vh]">
-              {/* Contenedor del carrusel */}
-              <div className="absolute inset-0">
-                {/* Para móvil: imagen fija */}
-                {isMobile ? (
-                  <div className="absolute inset-0">
-                    <Image
-                      src={mobileImage}
-                      alt="Imagen de fondo SEVINTEC"
-                      fill
-                      className="object-cover animate-fade-in"
-                      sizes="100vw"
-                      quality={90}
-                      priority={true}
-                      style={{
-                        objectPosition: 'calc(50% - 200px) center'
-                      }}
-                    />
-                  </div>
-                ) : (
-                  /* Para desktop: carrusel animado */
-                  <div className="absolute inset-0 overflow-hidden z-[1]">
-                    {carouselImages.map((imagePath, index) => {
-                      return (
-                        <div
-                          key={index}
-                          className="absolute inset-0 animate-carousel"
-                          style={{
-                            animationDelay: `${index * 4}s`,
-                            opacity: index === 0 ? 1 : 0,
-                          }}
-                        >
-                          <Image
-                            src={imagePath}
-                            alt={`Slide ${index + 1}`}
-                            fill
-                            className="object-cover"
-                            sizes="100vw"
-                            quality={100}
-                            priority={index === 0}
-                            style={{
-                              objectPosition: 'center center'
-                            }}
-                          />
-                        </div>
-                      );
-                    })}
-                  </div>
-                )}
+              {/* Video de fondo */}
+              <div className="absolute inset-0 z-[1]">
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="absolute inset-0 w-full h-full object-cover"
+                >
+                  <source src="/video/sevintec_video_footage.mp4" type="video/mp4" />
+                  {/* Fallback para navegadores que no soportan video */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-blue-900 to-gray-800"></div>
+                </video>
 
                 {/* Overlay gradiente permanente */}
                 <div className="absolute inset-0 z-[5]">
-                  <div className="absolute inset-0 bg-gradient-to-r from-black/40 from-0% via-black/10 via-45% to-transparent to-85% sm:from-black/60 sm:via-black/20"></div>
-                  <div className="absolute inset-0 bg-gradient-to-l from-black/40 from-100% via-black/10 via-55% to-transparent to-15% sm:from-black/60 sm:via-black/20"></div>
-                  {/* Overlay adicional sutil para móvil */}
-                  <div className="absolute inset-0 bg-black/20 sm:hidden"></div>
+                  <div className="absolute inset-0 bg-gradient-to-r from-black/40 from-0% via-black/20 via-45% to-transparent to-85%"></div>
+                  <div className="absolute inset-0 bg-gradient-to-l from-black/40 from-100% via-black/20 via-55% to-transparent to-15%"></div>
+                  <div className="absolute inset-0 bg-black/20"></div>
                 </div>
               </div>
 
@@ -373,22 +269,6 @@ export default function Home() {
                 </div>
               </div>
             </div>
-
-            {/* Indicadores del carrusel - Solo en desktop */}
-            {!isMobile && (
-              <div className="absolute bottom-6 right-4 md:right-8 z-30 flex space-x-2">
-                {Array.from({ length: carouselImages.length }, (_, i) => (
-                  <div
-                    key={i}
-                    className="w-2 h-2 rounded-full bg-white/30 transition-all duration-300 animate-indicator"
-                    style={{
-                      animationDelay: `${i * 4}s`,
-                      opacity: 0.3,
-                    }}
-                  />
-                ))}
-              </div>
-            )}
           </section>
 
           {/* Brands Section */}

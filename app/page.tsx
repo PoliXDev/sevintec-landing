@@ -175,13 +175,13 @@ export default function Home() {
               <div className="hidden md:block">
                 <div className="ml-10 flex items-center space-x-12">
                   <a 
-                    href="#inicio" 
+                    href="#home" 
                     className="text-gray-800 hover:text-yellow-500 px-3 py-2 text-lg font-medium transition-colors duration-200 border-b-2 border-transparent hover:border-yellow-500"
                   >
                     Inicio
                   </a>
                   <a 
-                    href="#servicios" 
+                    href="#services" 
                     className="text-gray-800 hover:text-yellow-500 px-3 py-2 text-lg font-medium transition-colors duration-200 border-b-2 border-transparent hover:border-yellow-500"
                   >
                     Servicios
@@ -193,7 +193,7 @@ export default function Home() {
                     Quienes Somos
                   </Link>
                   <a 
-                    href="#contacto" 
+                    href="#contact" 
                     className="bg-yellow-500 text-black px-6 py-3 rounded-lg text-lg font-semibold hover:bg-yellow-400 transition-colors duration-200 shadow-md hover:shadow-lg"
                   >
                     Contacto
@@ -207,7 +207,7 @@ export default function Home() {
         {/* Main Content */}
         <main className="pt-16">
           {/* Hero Section */}
-          <section id="inicio" className="relative overflow-hidden bg-gray-900">
+          <section id="home" className="relative overflow-hidden bg-gray-900">
             {/* Responsive container */}
             <div className="w-full relative min-h-[70vh] md:min-h-[80vh] lg:min-h-[90vh]">
               {/* Background video */}
@@ -247,7 +247,7 @@ export default function Home() {
                       <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                         <button 
                           onClick={() => {
-                            const contactSection = document.getElementById('contacto');
+                            const contactSection = document.getElementById('contact');
                             contactSection?.scrollIntoView({ behavior: 'smooth' });
                           }}
                           className="bg-yellow-500 text-black px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-bold hover:bg-yellow-400 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl text-sm sm:text-base md:text-lg shadow-lg"
@@ -256,7 +256,7 @@ export default function Home() {
                         </button>
                         <button 
                           onClick={() => {
-                            const servicesSection = document.getElementById('servicios');
+                            const servicesSection = document.getElementById('services');
                             servicesSection?.scrollIntoView({ behavior: 'smooth' });
                           }}
                           className="bg-white/10 backdrop-blur-sm border-2 border-white/50 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-bold hover:bg-white/20 hover:border-white transition-all duration-300 transform hover:-translate-y-1 text-sm sm:text-base md:text-lg shadow-lg"
@@ -325,7 +325,7 @@ export default function Home() {
           </section>
 
           {/* Services Grid */}
-          <section id="servicios" className="py-24 bg-gradient-to-b from-gray-50 to-white">
+          <section id="services" className="py-24 bg-gradient-to-b from-gray-50 to-white">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="text-center mb-16">
                 <h2 className="text-4xl font-bold text-gray-900 mb-4">Nuestros Servicios de Seguridad</h2>
@@ -468,7 +468,7 @@ export default function Home() {
           </section>
 
           {/* Contact Section */}
-          <section id="contacto" className="py-16 bg-gray-900 text-white">
+          <section id="contact" className="py-16 bg-gray-900 text-white">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                 <div>

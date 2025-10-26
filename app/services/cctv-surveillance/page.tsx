@@ -31,7 +31,7 @@ export default function VideovigilanciaCCTV() {
                   Inicio
                 </Link>
                 <Link 
-                  href="/#servicios" 
+                  href="/#services" 
                   className="text-gray-800 hover:text-yellow-500 px-3 py-2 text-lg font-medium transition-colors duration-200 border-b-2 border-transparent hover:border-yellow-500"
                 >
                   Servicios
@@ -43,7 +43,7 @@ export default function VideovigilanciaCCTV() {
                   Quienes Somos
                 </Link>
                 <Link 
-                  href="/#contacto" 
+                  href="/#contact" 
                   className="bg-yellow-500 text-black px-6 py-3 rounded-lg text-lg font-semibold hover:bg-yellow-400 transition-colors duration-200 shadow-md hover:shadow-lg"
                 >
                   Contacto
@@ -70,7 +70,7 @@ export default function VideovigilanciaCCTV() {
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Link 
-                    href="/#contacto" 
+                    href="/#contact" 
                     className="bg-yellow-500 text-black px-8 py-4 rounded-lg font-bold hover:bg-yellow-400 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl text-center"
                   >
                     Solicitar Cotización
@@ -418,13 +418,13 @@ export default function VideovigilanciaCCTV() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link 
-                href="/#contacto" 
+                href="/#contact" 
                 className="bg-yellow-500 text-black px-8 py-4 rounded-lg font-bold hover:bg-yellow-400 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl text-center"
               >
                 Solicitar Consulta Gratuita
               </Link>
               <Link 
-                href="/#servicios" 
+                href="/#services" 
                 className="bg-white/10 backdrop-blur-sm border-2 border-white/50 text-white px-8 py-4 rounded-lg font-bold hover:bg-white/20 hover:border-white transition-all duration-300 transform hover:-translate-y-1 inline-block text-center"
               >
                 Ver Otros Servicios

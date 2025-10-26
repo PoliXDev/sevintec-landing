@@ -88,13 +88,13 @@ export default function AboutUs() {
               <div className="hidden md:block">
                 <div className="ml-10 flex items-center space-x-12">
                   <Link 
-                    href="/#inicio" 
+                    href="/#home" 
                     className="text-gray-800 hover:text-yellow-500 px-3 py-2 text-lg font-medium transition-colors duration-200 border-b-2 border-transparent hover:border-yellow-500"
                   >
                     Inicio
                   </Link>
                   <Link 
-                    href="/#servicios" 
+                    href="/#services" 
                     className="text-gray-800 hover:text-yellow-500 px-3 py-2 text-lg font-medium transition-colors duration-200 border-b-2 border-transparent hover:border-yellow-500"
                   >
                     Servicios
@@ -106,7 +106,7 @@ export default function AboutUs() {
                     Quienes Somos
                   </Link>
                   <Link 
-                    href="/#contacto" 
+                    href="/#contact" 
                     className="bg-blue-500 text-white px-6 py-3 rounded-lg text-lg font-semibold hover:bg-blue-400 transition-colors duration-200 shadow-md hover:shadow-lg"
                   >
                     Contacto
@@ -232,7 +232,7 @@ export default function AboutUs() {
               </section>
 
               {/* CTA Section */}
-              <section id="contacto" className="text-center">
+              <section id="contact" className="text-center">
                 <div className="bg-gradient-to-br from-blue-500/10 to-blue-600/20 rounded-3xl p-8 md:p-12 border border-blue-200/50">
                   <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900">¿Listo para mejorar su seguridad?</h2>
                   <p className="text-lg md:text-xl mb-10 max-w-2xl mx-auto text-gray-700">
@@ -240,13 +240,13 @@ export default function AboutUs() {
                   </p>
                   <div className="flex flex-col sm:flex-row gap-6 justify-center">
                     <Link 
-                      href="/#contacto"
+                      href="/#contact"
                       className="bg-gradient-to-r from-blue-500 to-blue-600 text-white px-8 py-4 rounded-xl font-bold hover:from-blue-400 hover:to-blue-500 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl text-lg shadow-lg"
                     >
                       Solicitar Estudio Gratuito
                     </Link>
                     <Link 
-                      href="/#servicios"
+                      href="/#services"
                       className="bg-gradient-to-r from-gray-800 to-gray-900 text-white px-8 py-4 rounded-xl font-bold hover:from-gray-700 hover:to-gray-800 transition-all duration-300 transform hover:-translate-y-1 text-lg shadow-lg"
                     >
                       Ver Nuestros Servicios

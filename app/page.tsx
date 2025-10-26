@@ -9,7 +9,7 @@ import emailjs from '@emailjs/browser';
 export default function Home() {
   const { width } = useWindowSize();
   
-  // Estados para el formulario de contacto
+  // Contact form states
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -19,10 +19,10 @@ export default function Home() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   
-  // Determinar si es móvil (menos de 768px)
+  // Determine if mobile (less than 768px)
   const isMobile = width < 768;
 
-  // Función para manejar cambios en el formulario
+  // Function to handle form changes
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({
@@ -31,19 +31,19 @@ export default function Home() {
     }));
   };
 
-  // Función para enviar el formulario
+  // Function to submit form
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitStatus('idle');
 
     try {
-      // Configuración de EmailJS
+      // EmailJS configuration
       const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
       const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
       const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
 
-      // Verificar que las variables de entorno estén configuradas
+      // Verify environment variables are configured
       if (!serviceId || !templateId || !publicKey) {
         throw new Error('EmailJS no está configurado. Por favor, configura las variables de entorno.');
       }
@@ -61,14 +61,14 @@ export default function Home() {
       setSubmitStatus('success');
       setFormData({ name: '', email: '', phone: '', message: '' });
       
-      // Limpiar mensaje de éxito después de 5 segundos
+      // Clear success message after 5 seconds
       setTimeout(() => setSubmitStatus('idle'), 5000);
       
     } catch (error) {
       console.error('Error sending email:', error);
       setSubmitStatus('error');
       
-      // Limpiar mensaje de error después de 5 segundos
+      // Clear error message after 5 seconds
       setTimeout(() => setSubmitStatus('idle'), 5000);
     } finally {
       setIsSubmitting(false);
@@ -77,14 +77,14 @@ export default function Home() {
 
   return (
     <>
-      {/* Meta tags para forzar tema claro */}
+      {/* Meta tags to force light theme */}
       <meta name="color-scheme" content="light only" />
       <meta name="theme-color" content="#ffffff" />
       <meta name="msapplication-navbutton-color" content="#ffffff" />
       <meta name="apple-mobile-web-app-status-bar-style" content="light-content" />
       
       <style jsx global>{`
-        /* Forzar tema claro en todos los navegadores */
+        /* Force light theme in all browsers */
         :root {
           color-scheme: light only;
         }
@@ -97,7 +97,7 @@ export default function Home() {
           color-scheme: light only;
         }
         
-        /* Prevenir modo oscuro en navegadores móviles */
+        /* Prevent dark mode in mobile browsers */
         @media (prefers-color-scheme: dark) {
           :root {
             color-scheme: light only;
@@ -112,17 +112,17 @@ export default function Home() {
           }
         }
         
-        /* Forzar fondo blanco en todos los elementos */
+        /* Force white background in all elements */
         * {
           color-scheme: light only;
         }
         
-        /* Asegurar que el fondo sea siempre claro */
+        /* Ensure background is always light */
         html, body {
           background-color: #ffffff !important;
         }
         
-        /* Prevenir inversión de colores en navegadores */
+        /* Prevent color inversion in browsers */
         @media (prefers-color-scheme: dark) {
           html, body {
             background-color: #ffffff !important;
@@ -208,9 +208,9 @@ export default function Home() {
         <main className="pt-16">
           {/* Hero Section */}
           <section id="inicio" className="relative overflow-hidden bg-gray-900">
-            {/* Contenedor responsive */}
+            {/* Responsive container */}
             <div className="w-full relative min-h-[70vh] md:min-h-[80vh] lg:min-h-[90vh]">
-              {/* Video de fondo */}
+              {/* Background video */}
               <div className="absolute inset-0 z-[1]">
                 <video
                   autoPlay
@@ -220,11 +220,11 @@ export default function Home() {
                   className="absolute inset-0 w-full h-full object-cover"
                 >
                   <source src="/video/sevintec_video_footage.mp4" type="video/mp4" />
-                  {/* Fallback para navegadores que no soportan video */}
+                  {/* Fallback for browsers that don't support video */}
                   <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-blue-900 to-gray-800"></div>
                 </video>
 
-                {/* Overlay gradiente permanente */}
+                {/* Permanent gradient overlay */}
                 <div className="absolute inset-0 z-[5]">
                   <div className="absolute inset-0 bg-gradient-to-r from-black/40 from-0% via-black/20 via-45% to-transparent to-85%"></div>
                   <div className="absolute inset-0 bg-gradient-to-l from-black/40 from-100% via-black/20 via-55% to-transparent to-15%"></div>
@@ -232,7 +232,7 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Texto superpuesto */}
+              {/* Overlaid text */}
               <div className="absolute inset-0 z-20 flex items-end sm:items-center pb-14 sm:pb-0" style={{ transform: isMobile ? 'translateY(-30px)' : 'none' }}>
                 <div className="container mx-auto px-4 sm:px-6">
                   <div className="max-w-xl md:max-w-2xl lg:max-w-3xl">
@@ -515,15 +515,15 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="bg-white/10 p-8 rounded-lg backdrop-blur-sm">
-                  <form onSubmit={handleSubmit} className="space-y-6">
-                    {/* Mensaje de éxito */}
+                                      <form onSubmit={handleSubmit} className="space-y-6">
+                    {/* Success message */}
                     {submitStatus === 'success' && (
                       <div className="bg-green-500/20 border border-green-500/50 text-green-100 px-4 py-3 rounded-lg">
                         ✅ ¡Mensaje enviado exitosamente! Te contactaremos pronto.
                       </div>
                     )}
                     
-                    {/* Mensaje de error */}
+                    {/* Error message */}
                     {submitStatus === 'error' && (
                       <div className="bg-red-500/20 border border-red-500/50 text-red-100 px-4 py-3 rounded-lg">
                         ❌ Error al enviar el mensaje. Por favor, inténtalo de nuevo.
@@ -591,7 +591,7 @@ export default function Home() {
         {/* Footer */}
         <footer className="bg-gray-900 text-white py-6">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            {/* Línea divisoria y footer inferior */}
+            {/* Divider line and bottom footer */}
             <div className="border-t border-gray-800 pt-4">
               <div className="flex flex-col md:flex-row justify-between items-center gap-4">
                 <p className="text-gray-400 text-sm">
@@ -611,13 +611,13 @@ export default function Home() {
           </div>
         </footer>
 
-        {/* Botón flotante de WhatsApp */}
+        {/* Floating WhatsApp button */}
         <a
           href="https://wa.me/+584220777892"
           target="_blank"
           rel="noopener noreferrer"
           className="whatsapp-button fixed bottom-8 right-8 bg-[#25D366] text-white p-6 rounded-full shadow-xl hover:bg-[#20BA5C] transition-all duration-300 z-50 flex items-center justify-center group"
-          aria-label="Contactar por WhatsApp"
+          aria-label="Contact by WhatsApp"
         >
           <svg
             className="w-8 h-8 group-hover:scale-110 transition-transform duration-300"

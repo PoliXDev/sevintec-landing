@@ -715,7 +715,7 @@ export default function Home() {
             <div className="border-t border-gray-800 pt-4">
               <div className="flex flex-col md:flex-row justify-between items-center gap-4">
                 <p className="text-gray-400 text-sm">
-                  © {new Date().getFullYear()} SEVINTEC. Todos los derechos reservados.
+                  © {new Date().getFullYear()} SEVINTEC Rif J-50751725-0. Todos los derechos reservados.
                 </p>
                 <div className="flex items-center space-x-6">
                   <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors duration-300">

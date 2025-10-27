@@ -17,6 +17,9 @@ export const metadata: Metadata = {
   keywords: siteConfig.seo.keywords,
   authors: [{ name: siteConfig.company.name }],
   creator: siteConfig.company.name,
+  alternates: {
+    canonical: '/',
+  },
   // Meta tags para forzar tema claro
   other: {
     'color-scheme': 'light only',

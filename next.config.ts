@@ -4,6 +4,9 @@ const nextConfig: NextConfig = {
   // Optimizaciones para Vercel
   output: 'standalone',
   
+  // Trailing slash configuration
+  trailingSlash: false,
+  
   // Configuración de imágenes
   images: {
     formats: ['image/webp', 'image/avif'],
@@ -57,6 +60,18 @@ const nextConfig: NextConfig = {
       {
         source: '/home',
         destination: '/',
+        permanent: true,
+      },
+      // Redirect www to non-www
+      {
+        source: '/:path*',
+        has: [
+          {
+            type: 'host',
+            value: 'www.sevintec.com',
+          },
+        ],
+        destination: 'https://sevintec.com/:path*',
         permanent: true,
       },
     ];

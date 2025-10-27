@@ -1,0 +1,14 @@
+# Robots.txt for SEVINTEC
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://sevintec.com/sitemap.xml
+
+# Disallow query parameters to avoid duplicate content
+Disallow: /*?
+
+# Disallow temporary or test pages
+Disallow: /api/
+Disallow: /_next/
+
